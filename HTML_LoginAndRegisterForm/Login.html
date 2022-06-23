@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.0/css/all.css">
+</head>
+<body>
+
+    <!--Write an HTML code for a login form. Do not create any actions. The form should have
+the appropriate labels, user/email input, password input, remember me checkbox, and
+buttons for login with social media. You should also add the proper labels and
+validations. Additionally, use the appropriate attributes to hint the user at the valid
+data that should be entered.
+ -->
+
+<form action="" method="">
+  
+   <section>    
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" inputmode="text" placeholder="Enter Username" name="username" size="30" minlength="5" maxlength="40" tabindex="1" required><br><br>
+
+      <label for="email"> Email: </label>
+      <input type="email" id="email" inputmode="email" placeholder="Enter email" name="email" size="40" minlength="7" maxlength="50" tabindex="2" required><br><br>
+
+      <label for="password">Password:</label>   
+      <input type="password" id="password" pattern="[0-9a-zA-Z-_]{8,40}"  autofocus required title="Please enter at least 8 characters, that can be char, number or symbol _" 
+      placeholder="Enter pass" name="password"  size="30" autocomplete="current-password" tabindex="3" required><br><br>
+    
+      <label for="checkBox">Remember me</label>
+      <input type="checkbox" id="checkBox" name="checkBox" tabindex="4">
+      <br><br>    
+
+      <div>
+        <h3>Login with Social Media</h3>
+        
+        <div class="col">
+
+          <a href="#" class="fb btn">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#" class="twitter btn">
+            <i class="fa-brands fa-twitter"></i> 
+          </a>
+          <a href="#" class="google btn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="#" class="google btn">
+            <i class="fa-brands fa-google"></i>
+          </a>
+        </div>
+  
+      </div>
+
+      
+      
+    </section>
+</form>
+    
+</body>
+</html>
