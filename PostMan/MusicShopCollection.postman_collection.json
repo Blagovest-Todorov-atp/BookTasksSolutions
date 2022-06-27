@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "6e5b32b5-96d4-4ad8-b147-4328bc0bc7c8",
+		"name": "MusicShopCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21590233"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Get_Genres_All",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.variables.get(\"variable_key\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Genres",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Albums_All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiZWxsYXRyaXhVc2VyIiwianRpIjoiNjEyYjIzOTktNDUzMS00NmU0LTg5NjYtN2UxYmRhY2VmZTFlIiwibmJmIjoxNTE4NTI0NDg0LCJleHAiOjE1MjM3MDg0ODQsImlzcyI6ImF1dG9tYXRldGhlcGxhbmV0LmNvbSIsImF1ZCI6ImF1dG9tYXRldGhlcGxhbmV0LmNvbSJ9.Nq6OXqrK82KSmWNrpcokRIWYrXHanpinrqwbUlKT_cs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Albums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Tracks_All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Genre_ById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Genres/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Genres",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Album_ById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Albums/364",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"364"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Track_ById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Tracks/10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Tracks",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Artists_All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Artists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Artist_ById",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"artistId\", \"{{$randomInt}}\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Artists/278",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Artists",
+								"278"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Genres_ById_Dynamically",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//pm.environment.set(\"artistId\",\"{{$randomInt(1,50)}}\");\r",
+									"\r",
+									"//pm.globals.set('randomNumber', Math.floor(Math.random() * 5));\r",
+									"pm.collectionVariables.set (\"randomNum\", _.random (0,76));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": {{randomNum}}\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/Genres/{{randomNum}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Genres",
+								"{{randomNum}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_ArtistById_Dynamically",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomNum\", _.random (1,278));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": {{randomNum}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Artists/{{randomNum}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Artists",
+								"{{randomNum}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Album_ById_Dynamically",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set (\"randomNum\", _.random (1,366));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": {{randomNum}}\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/Albums/{{randomNum}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"{{randomNum}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Create_New_Album",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"albumId\": 367,\r\n    \"title\": \"Bulgaria5\",\r\n    \"artistId\": 278,\r\n    \"tracks\": [\r\n        {\r\n    \"trackId\" : 2,\r\n    \"name\" : \"its a beautiful life\",\r\n    \"albumId\" : 367,\r\n    \"mediaTypeId\": 1,\r\n    \"genreId\": 1,\r\n    \"unitPrice\":5161\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Albums/365/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"365",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_New_Artist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"artistId\": 278,\r\n    \"name\": \"Prince\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Artists",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Artists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_New_Track",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trackId\" : 1,\r\n    \"name\" : \"its a beautiful life\",\r\n    \"albumId\" : 1,\r\n    \"mediaTypeId\": 1,\r\n    \"genreId\": 1,\r\n    \"unitPrice\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Albums/366/Tracks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"366",
+								"Tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_New_MediaType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"MediaTypeId\":1,\r\n  \"Name\":\"mp3\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/media_types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"media_types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "Put_Album_ById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"albumId\": 15,\r\n    \"title\": \"Rammstein Germany\",\r\n    \"artistId\": 8,\r\n    \"artist\": null,\r\n    \"tracks\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/Albums/15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "Delete_Artist_ById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Artists/276",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Artists",
+								"276"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Album_ById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/Albums/364",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"Albums",
+								"364"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiZWxsYXRyaXhVc2VyIiwianRpIjoiNjEyYjIzOTktNDUzMS00NmU0LTg5NjYtN2UxYmRhY2VmZTFlIiwibmJmIjoxNTE4NTI0NDg0LCJleHAiOjE1MjM3MDg0ODQsImlzcyI6ImF1dG9tYXRldGhlcGxhbmV0LmNvbSIsImF1ZCI6ImF1dG9tYXRldGhlcGxhbmV0LmNvbSJ9.Nq6OXqrK82KSmWNrpcokRIWYrXHanpinrqwbUlKT_cs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "randomNum",
+			"value": ""
+		}
+	]
+}
